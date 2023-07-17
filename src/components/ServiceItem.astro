@@ -1,0 +1,96 @@
+---
+export interface Props {
+    id: string;
+    title: string;
+    img: string;
+}
+const { id, title, img } = Astro.props;
+---
+
+<a href={`/${id}`} class="service">
+    <div class="service__background" style=`background-image: url(${img});`>
+    </div>
+    <div class="service__content">
+        <div class="service__icon">
+            <i class="fa-solid fa-helmet-safety"></i>
+        </div>
+        <p class="service__title">{title}</p>
+        <div class="service__icon">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+    </div>
+</a>
+<style>
+    .service {
+        overflow: hidden;
+        list-style: none;
+        position: relative;
+        border: 1px solid var(--gray);
+    }
+
+    .service:before {
+        content: "";
+        display: block;
+        padding-bottom: 150%;
+        width: 100%;
+    }
+
+    .service__background {
+        background-size: cover;
+        background-position: center;
+        border-radius: 1rem;
+        bottom: 0;
+        filter: brightness(0.75) saturate(1.2) contrast(0.85);
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform-origin: center;
+        transform: scale(1) translateZ(0);
+        transition: filter 200ms linear, transform 200ms linear;
+
+        opacity: 0;
+    }
+
+    .service:hover .service__background {
+        transform: scale(1.05) translateZ(0);
+        opacity: 0.5;
+    }
+
+    .service-grid:hover > .service:not(:hover) .service__background {
+        filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+    }
+
+    .service__content {
+        display: grid;
+        grid-template-rows: 1fr 2fr 1fr;
+        height: 100%;
+        color: var(--buttonColor);
+        font-size: 3rem;
+        font-weight: 700;
+        left: 0;
+        padding: 2rem;
+        position: absolute;
+        top: 0;
+    }
+
+    .service__title {
+        color: var(--primary);
+        font-size: 3.5rem;
+    }
+
+    .service__category {
+        color: var(--buttonColor);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    .service__heading {
+        color: var(--primary);
+        font-size: 1.9rem;
+        text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+        line-height: 1.4;
+        word-spacing: 100vw;
+    }
+</style>

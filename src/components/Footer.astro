@@ -1,16 +1,12 @@
 ---
+import { navData } from "../data/navData";
 ---
 
 <footer class="footer">
     <div class="contenedor contenido">
         <nav class="navegacion">
-            <a href="/"> Inicio</a>
-            <a href="/servicios"> Servicios</a>
-            <a href="/proyectos"> Proyectos</a>
-            <a href="/nosotros"> Nosotros</a>
-            <a href="/contacto"> Contacto</a>
+            {navData.map((item) => <a href={item.path}>{item.name}</a>)}
         </nav>
-
         <p class="copyright">
             Todos los derechos reservados {new Date().getFullYear()}
         </p>
@@ -20,7 +16,7 @@
 <style>
     .footer {
         background-color: var(--secondary);
-        padding: 5rem 0;
+        padding: 5rem 2.5%;
         margin-top: 5rem;
     }
 

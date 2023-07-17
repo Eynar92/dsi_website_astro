@@ -1,0 +1,21 @@
+---
+import ServiceItem from "./ServiceItem.astro";
+import { services } from "../data/services";
+---
+
+{
+    services.map(({ id, title, img }) => {
+        return (
+            
+                <ServiceItem id={id} title={title} img={img} />
+            
+        );
+    })
+}
+
+<style>
+    .services{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+</style>

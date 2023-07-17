@@ -29,20 +29,22 @@ const { title, description, keywords, author } = Astro.props;
 		<slot />
 		<Footer />
 	</body>
-	<script src="https://kit.fontawesome.com/deca55cb60.js" crossorigin="anonymous"></script>
+	<script
+		src="https://kit.fontawesome.com/deca55cb60.js"
+		crossorigin="anonymous"></script>
 </html>
 <style is:global>
 	@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
-	@import url("https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700;900&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 
 	:root {
-		--bgColor: #010a10;
+		--bgColor: #010a1a;
 		--primary: #ffffff;
 		--secondary: #1a2331;
-		--buttonColor: #ed1c24;
+		--button: #ed1c24;
 		--black: #262626;
 		--gray: #fff;
-		--fuente-principal: "Outfit", sans-serif;
+		--fuente-principal: "Lato", sans-serif;
 	}
 	html {
 		font-size: 62.5%;
@@ -69,7 +71,7 @@ const { title, description, keywords, author } = Astro.props;
 	}
 	[class*="contenedor"],
 	main {
-		width: min(95%, 120rem);
+		width: 100%;
 		margin: 0 auto;
 	}
 	[class*="heading"] {
