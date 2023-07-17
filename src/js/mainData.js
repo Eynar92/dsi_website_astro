@@ -1,3 +1,4 @@
+// ESTE ES EL ARCHIVO mainData.js
 const paragraph = document.querySelector('.description');
 // const span = document.querySelector('.information__span');
 const background = document.querySelector('.slider__background');
