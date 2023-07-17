@@ -3,7 +3,13 @@ import bg01 from "../img/bg01.jpeg";
 ---
 
 <section class="slider">
-    <div class="slider__background"></div>
+    <div class="slider__background" style=`background-image: url(${bg01});`>
+        <!-- <img
+            class="slider__background--image"
+            src={bg01}
+            alt="Background image slider"
+        /> -->
+    </div>
     <div class="slider__container">
         <div class="slider__action">
             <h1 class="slider__title">Innovación y acción es nuestro lema</h1>
@@ -54,7 +60,6 @@ import bg01 from "../img/bg01.jpeg";
         position: absolute;
         top: 6rem;
         right: 0;
-        background-image: url(../img/bg01.jpeg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top center;
@@ -69,6 +74,10 @@ import bg01 from "../img/bg01.jpeg";
             background-position: top center;
         }
     }
+
+    /* .slider__background--image {
+        width: 100%;
+    } */
 
     .slider__container {
         display: flex;
