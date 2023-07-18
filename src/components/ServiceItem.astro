@@ -16,29 +16,40 @@ const { id, title, img } = Astro.props;
         </div>
         <p class="service__title">{title}</p>
         <div class="service__icon">
-            <i class="fa-solid fa-arrow-right"></i>
+            <i class="service__icon--color fa-solid fa-arrow-right"></i>
         </div>
     </div>
 </a>
 <style>
     .service {
+        height: 75vh;
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
         overflow: hidden;
         list-style: none;
-        position: relative;
-        border: 1px solid var(--gray);
+        /* border-radius: 1rem; */
+        box-shadow: 1px 10px 10px 0px rgba(0, 0, 0, 0.6);
+        -webkit-box-shadow: 1px 10px 10px 0px rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: 1px 10px 10px 0px rgba(0, 0, 0, 0.6);
+    }
+
+    @media (min-width: 420px) {
+        .service {
+            height: 100%;
+        }
     }
 
     .service:before {
         content: "";
         display: block;
-        padding-bottom: 150%;
+        padding-bottom: 100%;
         width: 100%;
     }
 
     .service__background {
         background-size: cover;
         background-position: center;
-        border-radius: 1rem;
         bottom: 0;
         filter: brightness(0.75) saturate(1.2) contrast(0.85);
         left: 0;
@@ -49,7 +60,13 @@ const { id, title, img } = Astro.props;
         transform: scale(1) translateZ(0);
         transition: filter 200ms linear, transform 200ms linear;
 
-        opacity: 0;
+        opacity: 0.3;
+    }
+
+    @media (min-width: 420px) {
+        .service__background {
+            opacity: 0;
+        }
     }
 
     .service:hover .service__background {
@@ -64,9 +81,10 @@ const { id, title, img } = Astro.props;
     .service__content {
         display: grid;
         grid-template-rows: 1fr 2fr 1fr;
+        align-items: center;
         height: 100%;
         color: var(--buttonColor);
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: 700;
         left: 0;
         padding: 2rem;
@@ -76,19 +94,29 @@ const { id, title, img } = Astro.props;
 
     .service__title {
         color: var(--primary);
-        font-size: 3.5rem;
     }
 
-    .service__category {
-        color: var(--buttonColor);
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
+    @media (min-width: 780px) {
+        .service__content {
+            font-size: 3rem;
+        }
+    }
+
+    .service__icon {
+        color: var(--button);
+        font-size: 2rem;
         text-transform: uppercase;
+    }
+
+    @media (min-width: 780px) {
+        .service__icon {
+            font-size: 3rem;
+        }
     }
 
     .service__heading {
         color: var(--primary);
-        font-size: 1.9rem;
+        font-size: 3rem;
         text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
         line-height: 1.4;
         word-spacing: 100vw;
