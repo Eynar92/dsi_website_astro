@@ -1,124 +1,137 @@
 ---
 export interface Props {
-    id: string;
-    title: string;
-    img: string;
+  id: string;
+  title: string;
+  img: string;
 }
 const { id, title, img } = Astro.props;
 ---
 
 <a href={`/${id}`} class="service">
-    <div class="service__background" style=`background-image: url(${img});`>
+  <div class="service__background" style=`background-image: url(${img});`></div>
+  <div class="service__content">
+    <div class="service__icon">
+      <i class="fa-solid fa-helmet-safety"></i>
     </div>
-    <div class="service__content">
-        <div class="service__icon">
-            <i class="fa-solid fa-helmet-safety"></i>
-        </div>
-        <p class="service__title">{title}</p>
-        <div class="service__icon">
-            <i class="service__icon--color fa-solid fa-arrow-right"></i>
-        </div>
+    <p class="service__title">{title}</p>
+    <div class="service__icon">
+      <i class="service__icon--color fa-solid fa-arrow-right"></i>
     </div>
+  </div>
 </a>
 <style>
+  .service {
+    height: 75vh;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    list-style: none;
+  }
+
+  @media (min-width: 420px) {
     .service {
-        height: 75vh;
-        position: relative;
-        width: 90%;
-        margin: 0 auto;
-        overflow: hidden;
-        list-style: none;
-        /* border-radius: 1rem; */
-        box-shadow: 1px 10px 10px 0px rgba(0, 0, 0, 0.6);
-        -webkit-box-shadow: 1px 10px 10px 0px rgba(0, 0, 0, 0.6);
-        -moz-box-shadow: 1px 10px 10px 0px rgba(0, 0, 0, 0.6);
+      height: 100%;
     }
+  }
 
-    @media (min-width: 420px) {
-        .service {
-            height: 100%;
-        }
-    }
+  /* .service:before {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+    width: 100%;
+  } */
 
-    .service:before {
-        content: "";
-        display: block;
-        padding-bottom: 100%;
-        width: 100%;
-    }
+  .service__background {
+    background-size: cover;
+    background-position: top center;
+    bottom: 0;
+    filter: brightness(0.75) saturate(1.2) contrast(0.85);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: center;
+    transform: scale(1) translateZ(0);
+    transition: filter 200ms linear, transform 200ms linear;
 
+    opacity: 0.3;
+  }
+
+  .service__background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+      to right,
+      rgba(1, 10, 26, 1) 0%,
+      rgba(1, 10, 26, 0.6) 25%,
+      rgba(1, 10, 26, 0) 50%,
+      rgba(1, 10, 26, 0.6) 75%,
+      rgba(1, 10, 26, 1) 100%
+    );
+  }
+
+  @media (min-width: 420px) {
     .service__background {
-        background-size: cover;
-        background-position: center;
-        bottom: 0;
-        filter: brightness(0.75) saturate(1.2) contrast(0.85);
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        transform-origin: center;
-        transform: scale(1) translateZ(0);
-        transition: filter 200ms linear, transform 200ms linear;
-
-        opacity: 0.3;
+      opacity: 0;
     }
+  }
 
-    @media (min-width: 420px) {
-        .service__background {
-            opacity: 0;
-        }
-    }
+  .service:hover .service__background {
+    transform: scale(1.05) translateZ(0);
+    opacity: 0.5;
+  }
 
-    .service:hover .service__background {
-        transform: scale(1.05) translateZ(0);
-        opacity: 0.5;
-    }
+  .service-grid:hover > .service:not(:hover) .service__background {
+    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+  }
 
-    .service-grid:hover > .service:not(:hover) .service__background {
-        filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
-    }
+  .service__content {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    align-items: center;
+    height: 100%;
+    margin: auto;
+    color: var(--buttonColor);
+    font-size: 3rem;
+    font-weight: 700;
+    left: 0;
+    padding: 5rem 3rem;
+    position: absolute;
+    top: 0;
+  }
 
+  .service__title {
+    color: var(--primary);
+  }
+
+  @media (min-width: 780px) {
     .service__content {
-        display: grid;
-        grid-template-rows: 1fr 2fr 1fr;
-        align-items: center;
-        height: 100%;
-        color: var(--buttonColor);
-        font-size: 2rem;
-        font-weight: 700;
-        left: 0;
-        padding: 2rem;
-        position: absolute;
-        top: 0;
+      font-size: 2rem;
     }
+  }
 
-    .service__title {
-        color: var(--primary);
-    }
+  .service__icon {
+    color: var(--button);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+  }
 
-    @media (min-width: 780px) {
-        .service__content {
-            font-size: 3rem;
-        }
-    }
-
+  @media (min-width: 780px) {
     .service__icon {
-        color: var(--button);
-        font-size: 2rem;
-        text-transform: uppercase;
+      font-size: 2.5rem;
     }
+  }
 
-    @media (min-width: 780px) {
-        .service__icon {
-            font-size: 3rem;
-        }
-    }
-
-    .service__heading {
-        color: var(--primary);
-        font-size: 3rem;
-        text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
-        line-height: 1.4;
-        word-spacing: 100vw;
-    }
+  .service__heading {
+    color: var(--primary);
+    font-size: 3rem;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+    line-height: 1.4;
+    word-spacing: 100vw;
+  }
 </style>

@@ -4,53 +4,56 @@ import { services } from "../data/services";
 ---
 
 <section class="services">
-    <h1 class="services__title">Nuestros servicios</h1>
-    <div class="services__grid">
-        {
-            services.map(({ id, title, img }) => {
-                return <ServiceItem id={id} title={title} img={img} />;
-            })
-        }
-    </div>
+  <h2 class="services__title">Nuestros servicios</h2>
+  <div class="services__grid">
+    {
+      services.map(({ id, title, img }) => {
+        return <ServiceItem id={id} title={title} img={img} />;
+      })
+    }
+  </div>
 </section>
 <style>
+  .services {
+    /* border: 1px solid red; */
+  }
+
+  @media (min-width: 420px) {
     .services {
-        border: 1px solid red;
+      height: 100vh;
     }
+  }
 
-    @media (min-width: 420px) {
-        .services {
-            height: 100vh;
-        }
-    }
+  .services__title {
+    padding: 3rem 0;
+    text-align: center;
+    color: var(--primary);
+    margin: 0;
+    font-size: 4rem;
+  }
 
-    .services__title {
-        padding: 3rem 0;
-        text-align: center;
-        color: var(--primary);
-        margin: 0;
-    }
+  .services__grid {
+    position: relative;
+    height: auto;
+    /* width: 95%; */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin: 0 auto;
+  }
 
+  @media (min-width: 420px) {
     .services__grid {
-        height: auto;
-        width: 95%;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        margin: 0 auto;
+      height: calc(100vh - 12rem);
+      grid-template-columns: repeat(2, 1fr);
+      width: 95%;
+      gap: 0;
     }
+  }
 
-    @media (min-width: 420px) {
-        .services__grid {
-            height: calc(100vh - 12rem);
-            grid-template-columns: repeat(2, 1fr);
-            max-width: 95%;
-        }
+  @media (min-width: 768px) {
+    .services__grid {
+      grid-template-columns: repeat(3, 1fr);
     }
-
-    @media (min-width: 768px) {
-        .services__grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
+  }
 </style>
