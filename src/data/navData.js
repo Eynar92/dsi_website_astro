@@ -9,7 +9,7 @@ export const navData = [
     },
     {
         name: "Proyectos",
-        path: "/proyect/",
+        path: "/projects/",
     },
     {
         name: "Nosotros",

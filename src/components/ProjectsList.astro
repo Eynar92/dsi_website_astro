@@ -1,0 +1,54 @@
+---
+import ProjectItem from "./ProjectItem.astro";
+import { projects } from "../data/projects";
+---
+
+<div class="projects__list--wrapper">
+  <i id="up" class="arrow-icon fa-solid fa-chevron-up"></i>
+  <ul class="projects__carousel">
+    {
+      projects.map(({ id, title }) => {
+        return (
+          <li class="projects__carousel--item">
+            <ProjectItem id={id} title={title} />
+          </li>
+        );
+      })
+    }
+  </ul>
+  <i id="down" class="arrow-icon fa-solid fa-chevron-down"></i>
+</div>
+<style>
+  .projects__list--wrapper {
+    height: 90%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .arrow-icon {
+    font-size: 1.5rem;
+    color: var(--bgColor);
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .projects__carousel {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 2rem;
+  }
+
+  .projects__carousel--item {
+    height: 3rem;
+  }
+</style>

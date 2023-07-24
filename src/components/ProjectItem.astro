@@ -1,0 +1,33 @@
+---
+export interface Props {
+  id: string;
+  title: string;
+}
+const { id, title } = Astro.props;
+---
+
+<a href={`/${id}`} class="project">
+  <div class="project__title">
+    <h3 class="title">{title}</h3>
+  </div>
+</a>
+
+<style>
+  .project {
+    color: var(--bgColor);
+    text-decoration: none;
+    border-top: 1px solid var(--gray);
+    border-bottom: 1px solid var(--gray);
+    font-size: 1rem;
+  }
+
+  @media (min-width: 420px) {
+    .project {
+      font-size: 1.5rem;
+    }
+  }
+
+  .title {
+    margin: 0;
+  }
+</style>

@@ -13,7 +13,9 @@ import bg01 from "/img/bg01.jpeg";
   <div class="slider__container">
     <div class="slider__action">
       <h1 class="slider__title">Innovación y acción es nuestro lema</h1>
-      <a href="#" class="btn">Saber más</a>
+      <a href="#" class="btn"
+        ><i class="icon fa-solid fa-arrow-right"></i> Saber más</a
+      >
     </div>
     <div class="slider__description">
       <div class="slider__description--paragraph">
@@ -144,12 +146,46 @@ import bg01 from "/img/bg01.jpeg";
 
   .btn {
     align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     text-decoration: none;
     color: var(--primary);
     font-size: 2rem;
     padding: 1rem 5rem;
-    background-color: var(--button);
+    border: 1px solid var(--button);
     border-radius: 2rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .btn::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: var(--button);
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 300ms;
+  }
+
+  .btn:hover::after {
+    width: 100%;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+  }
+
+  .btn:hover .icon {
+    animation: arrowMove 300ms ease-in-out;
+  }
+
+  @keyframes arrowMove {
+    0% {transform: translateX(-100%)},
+    100% {transform: translateX(0%)},
   }
 
   .slider__description {
