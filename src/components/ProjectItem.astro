@@ -6,7 +6,7 @@ export interface Props {
 const { id, title } = Astro.props;
 ---
 
-<a href={`/${id}`} class="project">
+<a href={`/${id}`} class="project" draggable="false">
   <div class="project__title">
     <h3 class="title">{title}</h3>
   </div>

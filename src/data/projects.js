@@ -1,32 +1,32 @@
 export const projects = [
     {
         id: 'seguridad-industrial',
-        title: 'Proyecto de Salud y Seguridad Industrial',
+        title: 'Projecto 1',
         img: "/img/bg02.jpg"
     },
     {
         id: 'consultoria-construccion',
-        title: 'Planificación y Consultoría en Construcción',
+        title: 'Projecto 2',
         img: "/img/bg01.jpeg"
     },
     {
         id: 'marketing',
-        title: 'Estrategias de Marketing Digital',
+        title: 'Projecto 3',
         img: "/img/bg01.jpeg"
     },
     {
         id: 'diseno-grafico',
-        title: 'Diseño Gráfico Innovador para Marcas',
+        title: 'Projecto 4',
         img: "/img/bg02.jpg"
     },
     {
         id: 'contaduria',
-        title: 'Servicios de Contaduría Empresarial',
+        title: 'Projecto 5',
         img: "/img/bg01.jpeg"
     },
     {
-        id: 'contabilidad',
-        title: 'Contabilidad Financiera y Fiscal',
+        id: 'contaduria',
+        title: 'Projecto 6',
         img: "/img/bg01.jpeg"
     }
 ]
