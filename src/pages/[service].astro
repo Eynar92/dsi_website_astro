@@ -3,35 +3,141 @@ import Layout from "../layouts/Layout.astro";
 import { services } from "../data/services";
 
 export function getStaticPaths() {
-    return services.map((service) => {
-        return {
-            params: { service: service.id },
-            props: { serviceContent: service },
-        };
-    });
+  return services.map((service) => {
+    return {
+      params: { service: service.id },
+      props: { serviceContent: service },
+    };
+  });
 }
 
 const { service } = Astro.params;
 const { serviceContent } = Astro.props;
 
 if (!service) {
-    return Astro.redirect("/404");
+  return Astro.redirect("/404");
 }
 ---
 
 <Layout
-    title={`${serviceContent.title}`}
-    description="DSI - Desarrollo de Sistemas Integrados ofrece servicios profesionales de Seguridad Industrial, Salud en el Trabajo, y Certificaciones en Bioseguridad. Nuestros servicios incluyen protocolos de Bioseguridad, simulacros COVID-19, programas de seguridad NTS 009, capacitaciones en bioseguridad y evacuación, monitoreos ocupacionales, y más. Nuestro objetivo es garantizar la satisfacción de nuestros clientes y ser líderes en el ámbito industrial y servicios en la región. Visítanos próximamente en nuestra nueva URL del sitio web."
-    keywords="DSI, Desarrollo de Sistemas Integrados, Seguridad Industrial, Salud en el Trabajo, Certificaciones, Bioseguridad, Protocolos, Monitoreos Ocupacionales, Sistemas de Gestión, ISO 45001, ISO 14001, ISO 9001, ISO 22000, Informes Ambientales, Manifiestos Ambientales, Planes de Producción, Planes de Marketing, Análisis de Mercado"
-    author="Desarrollo de Sistemas Integrados (DSI)"
+  title={`${serviceContent.title}`}
+  description="DSI - Desarrollo de Sistemas Integrados ofrece servicios profesionales de Seguridad Industrial, Salud en el Trabajo, y Certificaciones en Bioseguridad. Nuestros servicios incluyen protocolos de Bioseguridad, simulacros COVID-19, programas de seguridad NTS 009, capacitaciones en bioseguridad y evacuación, monitoreos ocupacionales, y más. Nuestro objetivo es garantizar la satisfacción de nuestros clientes y ser líderes en el ámbito industrial y servicios en la región. Visítanos próximamente en nuestra nueva URL del sitio web."
+  keywords="DSI, Desarrollo de Sistemas Integrados, Seguridad Industrial, Salud en el Trabajo, Certificaciones, Bioseguridad, Protocolos, Monitoreos Ocupacionales, Sistemas de Gestión, ISO 45001, ISO 14001, ISO 9001, ISO 22000, Informes Ambientales, Manifiestos Ambientales, Planes de Producción, Planes de Marketing, Análisis de Mercado"
+  author="Desarrollo de Sistemas Integrados (DSI)"
 >
-    <main>
-        <h1>{serviceContent.title}</h1>
-        <img src={serviceContent.img} alt={`${serviceContent.title} image`} />
-    </main>
+  <header class="header">
+    <div
+      class="header__banner"
+      style={`--banner-image: url(${serviceContent.img})`}
+    >
+      <h1 class="header__title">{serviceContent.title}</h1>
+      <p class="header__description">{serviceContent.description}</p>
+    </div>
+  </header>
+  <main class="main">
+    <h2 class="main__title">{serviceContent.subTitle.h2}</h2>
+    <div class="main__list">
+      <img class="main__image" src={serviceContent.img1} alt="List image" />
+      <ul class="list">
+        <li class="list__item">
+          {serviceContent.subTitle.p1}
+        </li>
+      </ul>
+    </div>
+  </main>
 </Layout>
 <style>
-    h1 {
-        color: var(--primary);
+  .header {
+    width: 100%;
+  }
+
+  @media (min-width: 420px) {
+    .header {
+      height: 60vh;
     }
+  }
+
+  .header__banner {
+    padding: 1rem 5%;
+    height: 100%;
+    background-image: linear-gradient(
+        to right,
+        rgba(1, 10, 26, 1) 0%,
+        rgba(1, 10, 26, 0.7) 70%,
+        rgba(1, 10, 26, 0) 100%
+      ),
+      var(--banner-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--primary);
+  }
+
+  @media (min-width: 420px) {
+    .header__banner {
+      padding: 3rem 2.5%;
+      background-image: linear-gradient(
+          to right,
+          rgba(1, 10, 26, 1) 0%,
+          rgba(1, 10, 26, 0.7) 40%,
+          rgba(1, 10, 26, 0) 100%
+        ),
+        var(--banner-image);
+    }
+  }
+
+  .header__title {
+    margin: 0;
+    font-size: 4rem;
+  }
+
+  @media (min-width: 420px) {
+    .header__title {
+      font-size: 5rem;
+      text-align: left;
+    }
+  }
+  .header__description {
+    width: 100%;
+    opacity: 0.95;
+  }
+
+  @media (min-width: 420px) {
+    .header__description {
+      width: 70%;
+    }
+  }
+
+  .main {
+    color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 5%;
+  }
+
+  @media (min-width: 420px) {
+     .main {
+        padding: 3rem 2.5%;
+     }
+  }
+
+  .main__list {
+    background-color: var(--primary);
+    color: var(--bgColor);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 420px) {
+    .main__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 </style>
