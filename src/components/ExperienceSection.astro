@@ -1,0 +1,105 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="experience">
+  <div class="experience__description">
+    <h2 class="experience__title">Nuestra experiencia nos faculta</h2>
+    <p class="experience__paragraph">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, quibusdam
+      pariatur explicabo nam fuga, cupiditate consectetur, consequuntur eius
+      labore consequatur nostrum architecto assumenda alias distinctio laborum
+      obcaecati aliquid beatae aut.
+    </p>
+    <Button color="bgColor" hoverColor="button">Trabaja con nosotros</Button>
+  </div>
+  <div class="experience__counters">
+    <div class="counter counter__years">85 +</div>
+    <div class="counter counter__clients">35 +</div>
+    <div class="counter counter__sites">3</div>
+  </div>
+</section>
+
+<style>
+  .experience {
+    border: 1px solid red;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 420px) {
+    .experience {
+      height: 100vh;
+      flex-direction: row;
+    }
+  }
+
+  .experience__description {
+    height: 100%;
+    width: 100%;
+    padding: 3rem 7.5%;
+    background-color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 3rem;
+  }
+
+  @media (min-width: 420px) {
+    .experience__description {
+      flex: 1;
+      width: 100%;
+      gap: 0;
+      padding: 0 5%;
+    }
+  }
+  .experience__title {
+    margin: 0;
+    font-size: 3rem;
+  }
+
+  @media (min-width: 420px) {
+    .experience__title {
+      font-size: 4rem;
+    }
+  }
+
+  .experience__paragraph {
+    opacity: 0.7;
+    margin: 0;
+    font-size: 2rem;
+  }
+
+  .experience__counters {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+  }
+  @media (min-width: 420px) {
+    .experience__counters {
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  }
+
+  .counter {
+    height: 5rem;
+    color: var(--button);
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  @media (min-width: 420px) {
+     .counter {
+      font-size: 5rem;
+     }
+  }
+</style>
